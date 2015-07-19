@@ -2,31 +2,21 @@ language:
 - objective-c
 matrix:
   include: 
-  - python: 2.6
-    env:
-    - PYTHON_VERSION="2.6"
-    - NUMPY_VERSION="1.6"
   - python: 2.7
     env:
     - PYTHON_VERSION="2.7"
-    - NUMPY_VERSION="1.6"
-  - python: 3.3
-    env:
-    - PYTHON_VERSION="3.3"
-    - NUMPY_VERSION="1.7"
-  - python: 3.4
-    env:
-    - PYTHON_VERSION="3.4"
-    - NUMPY_VERSION="1.8"
 install: source build_wheel.sh
 script:
     - "whl_file=$(echo *.whl)"
-deploy:
-  provider: releases
-  api_key:
-    secure: AaEcD4djzoUlblgNYJofWdz3lL48UGITp+Ly1jYkcbjwNy4I2geAkekBk5gkjxWxLa16LbQxxN91IqDhgQnFA8e6hgQU4DpZm6OoQFE8m23VYTz9WPxESP6RNvAgvvHT0aiI8XrMFWDLS2Yb6qB5m/0/Zyrj6/UkZDAOFM07jj8=
-  file: $whl_file
-  skip_cleanup: true
-  on:
-    all_branches: true
-    tags: true
+    
+#deploy:
+#  provider: pypi
+#  user: bteague
+#  password:
+#    secure: wuHiud6wAjUpigiABFhlnNi8nWivwmsx6mluEu0pbySGJZZzUDe0y7X7GwvzCE2TDcXcTf8ol5Gmbwndc/Oe2ekDVv+G0caC0cRbMnFYPvQWHuj/Y6laEpjKqtXG+8OJ9uTWMPlbEj9BJRQ3nE8Udi8yZSgHWLM8Cs5MSSxmB+ojLxR2YMJbLrIecRT+w0Kk3R3Ke9rHNDWk1KE0jiwmSlZHdfQ4BvP5hWGyJzgz8scCOzCs0FADtdbcI07fYBmzO24Tu7hRpWk+MuJT+42MN41tzS/lPGesIli928GNCzUVJb8hVVKPP+igVwDCyzUoLJIAxAJvBspTDQ9zyOHYmGQB+dj7Mi5s1hhTS0+ZUSJ+A1/RR+G+rvWHDpdbJWny/JLErLuY6a+nYdXiZQnQqyh9fbzE3eBhYGkEEpZu1I3IgjgIyrEsTSSN7v6z+L6OXsttaze8GQ7q6Es+dGmu2rZpSGw9Cp1hBnm4vdPgbe73N2lnm+m+mDsiZ6eDdDmdhRCRPjmN5f3iUo3BdZkJ9vypjBo5HzAPJcJlg3BAeGkOBa7Vx2ZD2VQgyePR3YerzxfnAJ9bVeo2ZD4xe/8xwr05RwJc2D3/w9+aumJbXQbEj44OVVFfDD1WHaHFH5Y+NXHBrZRbPNYlNyVYBYsRF3lVrnpqR0QXP1BbgUrpzwY=
+#  on:
+#    repo: bpteague/cytoflow-wheels
+#    branch: master
+#  server: https://testpypi.python.org/pypi
+#  distribution: "bdist_wheel"
+#  skip_cleanup: true
