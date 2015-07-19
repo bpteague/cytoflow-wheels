@@ -4,7 +4,7 @@ set -e
 pwd
 ls
 
-pip install twine
+sudo pip install twine
 
 cat >~/.pypirc <<EOF
 [distutils]
@@ -19,7 +19,7 @@ repository = https://testpypi.python.org/pypi
 repository = https://pypi.python.org/pypi
 EOF
 
-echo $TWINE_USERNAME
-echo $TWINE_PASSWORD
+echo user $TWINE_USERNAME
+echo pwd $TWINE_PASSWORD
 twine upload -r pypitest -u $TWINE_USERNAME -p $TWINE_PASSWORD *.whl
 
