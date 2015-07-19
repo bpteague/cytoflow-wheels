@@ -1,11 +1,18 @@
 language:
 - objective-c
+
 matrix:
   include: 
   - python: 2.7
     env:
     - PYTHON_VERSION="2.7"
+
+before_install:
+  - brew update
+  - brew install swig
+
 install: source build_wheel.sh
+
 script:
     - "whl_file=$(echo *.whl)"
     
