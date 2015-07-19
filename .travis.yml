@@ -1,6 +1,9 @@
 language:
 - objective-c
 
+env:
+ - secure: "XgM+8zTd88OmsRGiCdlbSNMuZ5H1eClI8Mgy9I1AMPTsB5Ud7gImHgNnvAGYxsgiMfBySNssMKWYZLyy/ObSKz1hrbVNhxvDWho8DIAVwPihA+99i7Pgenvb+W+R1wsKAGf1njQf29DRCpPCGT/byN+vHpwaGs2PvCCP70eabwzD1M3Z8bnfk+xkAUCZ48U9KZCp2VUNQ59t9orKeNjjmdOdPDVrDTBjRm9HUCySgkNcCRg288hw1fjgSzhCfJz9ryAAOr+YYlL1mFB8lOC5Xm0LmdDDGl6/7KTp89oUEnlr2JbMifamT6LesXrGWZu/GRn3wvra5melNqxrcflEckrewTzViYOtNgwmxEPObIj/9RwzjMK6OWq6a4fXWMMTHv23xdMQZEsBumr2LBB3UYAjcpbKTfjLC8YoeHDkm9XOzidASxvKovjYsZJPVPDDM3Jc6u34PLBdsLymMVLORRFO012m9a4Hi5Cv5fzoFOyzniN/qAGF1FM+4fMLqQu99+rG38I72bRN6HJuYyTounPPQ4PbGN06/bYzbf5qJaw1i66RkhFlDYFM5Qsy9DqOB2sEdqDH45nPuHBQjzDdW8FNl3cP4JxTKXD4poFB5YIGCXMdzZqhQX8+f5t/aN35UfVVFYTDoyO6D87PcYPaEqtGeoT5bo4a89PVnv5UQxI="
+
 matrix:
   include: 
   - python: 2.7
@@ -12,18 +15,11 @@ before_install:
   - brew install swig
 
 install: source build_wheel.sh
-
-script:
-    - "whl_file=$(echo *.whl)"
     
 deploy:
-  provider: pypi
-  user: bteague
-  password:
-    secure: wuHiud6wAjUpigiABFhlnNi8nWivwmsx6mluEu0pbySGJZZzUDe0y7X7GwvzCE2TDcXcTf8ol5Gmbwndc/Oe2ekDVv+G0caC0cRbMnFYPvQWHuj/Y6laEpjKqtXG+8OJ9uTWMPlbEj9BJRQ3nE8Udi8yZSgHWLM8Cs5MSSxmB+ojLxR2YMJbLrIecRT+w0Kk3R3Ke9rHNDWk1KE0jiwmSlZHdfQ4BvP5hWGyJzgz8scCOzCs0FADtdbcI07fYBmzO24Tu7hRpWk+MuJT+42MN41tzS/lPGesIli928GNCzUVJb8hVVKPP+igVwDCyzUoLJIAxAJvBspTDQ9zyOHYmGQB+dj7Mi5s1hhTS0+ZUSJ+A1/RR+G+rvWHDpdbJWny/JLErLuY6a+nYdXiZQnQqyh9fbzE3eBhYGkEEpZu1I3IgjgIyrEsTSSN7v6z+L6OXsttaze8GQ7q6Es+dGmu2rZpSGw9Cp1hBnm4vdPgbe73N2lnm+m+mDsiZ6eDdDmdhRCRPjmN5f3iUo3BdZkJ9vypjBo5HzAPJcJlg3BAeGkOBa7Vx2ZD2VQgyePR3YerzxfnAJ9bVeo2ZD4xe/8xwr05RwJc2D3/w9+aumJbXQbEj44OVVFfDD1WHaHFH5Y+NXHBrZRbPNYlNyVYBYsRF3lVrnpqR0QXP1BbgUrpzwY=
+  provider: script
+  script: deploy_wheel.sh
   on:
     repo: bpteague/cytoflow-wheels
     branch: master
-  server: https://testpypi.python.org/pypi
-  distribution: "bdist_wheel"
   skip_cleanup: true
