@@ -31,9 +31,11 @@ pip install wheel
 python setup.py bdist_wheel
 
 # clean up
+pwd
 mv dist/*.whl ../../.
 cd ../..
 source deactivate
+pwd
 ls -la 
 pwd
 cd
