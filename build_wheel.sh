@@ -30,8 +30,16 @@ echo "Building cytoflow wheel for Python: $PYTHON_VERSION"
 pip install wheel
 python setup.py bdist_wheel
 
+if [ -z "${TRAVIS_TAG}" ]
+then
+  echo "No tag; not uploading"
+else
+  
 # clean up
 mv dist/*.whl ../../.
 cd ../..
 source deactivate
 ls -la 
+pwd
+cd
+ls -al
