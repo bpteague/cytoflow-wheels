@@ -18,8 +18,13 @@ python --version
 
 # update the cytoflow submodule
 cd cytoflow
-echo Tag ${TRAVIS_TAG}
-git checkout ${TRAVIS_TAG}
+git pull
+if [ -z "${TRAVIS_TAG} ]
+then
+  git checkout master
+else
+  git checkout ${TRAVIS_TAG}
+fi
 
 # build the wheel
 echo "Building cytoflow wheel for Python: $PYTHON_VERSION"
