@@ -19,7 +19,9 @@ repository = https://testpypi.python.org/pypi
 repository = https://pypi.python.org/pypi
 EOF
 
-echo user $TWINE_USERNAME
-echo pwd $TWINE_PASSWORD
-twine upload -r pypitest -u $TWINE_USERNAME -p $TWINE_PASSWORD *.whl
-
+if [ -z "${TRAVIS_TAG}" ]
+then
+    echo "Not a tagged release; no upload."
+else
+    twine upload -r pypi -u $TWINE_USERNAME -p $TWINE_PASSWORD *.whl
+fi
