@@ -18,12 +18,17 @@ before_install:
 install: source build_wheel.sh
 
 script:
-    - "whl_file=$(echo *.whl)"
+  - "whl_file=$(echo *.whl)"
     
-#deploy:
-#  provider: script
-#  script: deploy_wheel.sh
-#  on:
-#    repo: bpteague/cytoflow-wheels
-#    branch: master
-#  skip_cleanup: true
+after_success:
+  - pwd
+  - ls
+  - chmod +x deploy_wheel.sh
+    
+deploy:
+  provider: script
+  script: deploy_wheel.sh
+  on:
+    repo: bpteague/cytoflow-wheels
+    branch: master
+  skip_cleanup: true
