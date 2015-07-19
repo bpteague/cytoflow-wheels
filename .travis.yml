@@ -21,14 +21,5 @@ script:
   - "whl_file=$(echo *.whl)"
     
 after_success:
-  - pwd
-  - ls
-  - chmod +x deploy_wheel.sh
-    
-deploy:
-  provider: script
-  script: deploy_wheel.sh
-  on:
-    repo: bpteague/cytoflow-wheels
-    branch: master
-  skip_cleanup: true
+  - source deploy_wheel.sh
+
