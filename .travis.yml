@@ -16,6 +16,9 @@ before_install:
   - brew install swig
 
 install: source build_wheel.sh
+
+script:
+    - "whl_file=$(echo *.whl)"
     
 deploy:
   provider: script
