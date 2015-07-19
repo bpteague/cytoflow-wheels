@@ -31,7 +31,7 @@ pip install wheel
 python setup.py bdist_wheel
 
 # clean up
-mv dist/*.whl ../../.
-cd ../..
+mv dist/*.whl ..
+cd ..
 source deactivate
 ls -la
