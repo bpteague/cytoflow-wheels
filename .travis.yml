@@ -4,6 +4,11 @@ language:
 env:
   global:
     - secure: "XgM+8zTd88OmsRGiCdlbSNMuZ5H1eClI8Mgy9I1AMPTsB5Ud7gImHgNnvAGYxsgiMfBySNssMKWYZLyy/ObSKz1hrbVNhxvDWho8DIAVwPihA+99i7Pgenvb+W+R1wsKAGf1njQf29DRCpPCGT/byN+vHpwaGs2PvCCP70eabwzD1M3Z8bnfk+xkAUCZ48U9KZCp2VUNQ59t9orKeNjjmdOdPDVrDTBjRm9HUCySgkNcCRg288hw1fjgSzhCfJz9ryAAOr+YYlL1mFB8lOC5Xm0LmdDDGl6/7KTp89oUEnlr2JbMifamT6LesXrGWZu/GRn3wvra5melNqxrcflEckrewTzViYOtNgwmxEPObIj/9RwzjMK6OWq6a4fXWMMTHv23xdMQZEsBumr2LBB3UYAjcpbKTfjLC8YoeHDkm9XOzidASxvKovjYsZJPVPDDM3Jc6u34PLBdsLymMVLORRFO012m9a4Hi5Cv5fzoFOyzniN/qAGF1FM+4fMLqQu99+rG38I72bRN6HJuYyTounPPQ4PbGN06/bYzbf5qJaw1i66RkhFlDYFM5Qsy9DqOB2sEdqDH45nPuHBQjzDdW8FNl3cP4JxTKXD4poFB5YIGCXMdzZqhQX8+f5t/aN35UfVVFYTDoyO6D87PcYPaEqtGeoT5bo4a89PVnv5UQxI="
+
+matrix:
+  include: 
+  - python: 2.7
+    env:
     - PYTHON_VERSION="2.7"
 
 before_install:
@@ -11,6 +16,9 @@ before_install:
   - brew install swig
 
 install: source build_wheel.sh
+
+script:
+    - "whl_file=$(echo *.whl)"
     
 deploy:
   provider: script
