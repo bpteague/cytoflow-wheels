@@ -33,6 +33,5 @@ python setup.py bdist_wheel
 # clean up
 mv dist/*.whl ../../.
 cd ../..
-rm -r tmp
 source deactivate
 ls -la 
