@@ -18,7 +18,7 @@ python --version
 
 # update the cytoflow submodule
 cd cytoflow
-if [ -z "${TRAVIS_TAG} ]
+if [ -z "${TRAVIS_TAG}" ]
 then
   git checkout master
 else
