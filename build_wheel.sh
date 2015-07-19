@@ -30,14 +30,4 @@ echo "Building cytoflow wheel for Python: $PYTHON_VERSION"
 pip install wheel
 python setup.py bdist_wheel
 
-# clean up
-pwd
-mv dist/*.whl ../../.
-cd ../..
-source deactivate
-pwd
-ls -la 
-pwd
-cd
-ls -al
-
+ls dist/*
