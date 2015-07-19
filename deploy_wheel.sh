@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+pwd
+ls
+
 pip install twine
 
 cat >~/.pypirc <<EOF
@@ -16,8 +19,7 @@ repository = https://testpypi.python.org/pypi
 repository = https://pypi.python.org/pypi
 EOF
 
-cd cytoflow
 echo $TWINE_USERNAME
 echo $TWINE_PASSWORD
-twine upload -r pypitest -u $TWINE_USERNAME -p $TWINE_PASSWORD dist/*.whl
+twine upload -r pypitest -u $TWINE_USERNAME -p $TWINE_PASSWORD *.whl
 
