@@ -13,7 +13,7 @@ conda update --yes conda
 # create a conda environment with the necessary Python modules for a build
 conda create --yes -n build_env python=$PYTHON_VERSION
 source activate build_env
-conda install --yes setuptools pip numpy=$NUMPY_VERSION six cython pandas numexpr seaborn traits pyface envisage pyqt
+conda install --yes setuptools pip numpy six cython pandas numexpr seaborn traits pyface envisage pyqt
 python --version
 
 # update the cytoflow submodule
